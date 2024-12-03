@@ -1,1 +1,5 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=17414398&assignment_repo_type=AssignmentRepo)
+We will be creating a website that takes the name of a book and returns publication information from Open Library. The application will then pass this information to a Wikipedia API that will return information about the author. The book information will also be passed to quoteable to generate a random quote from the book:
+
+Quoteable: https://github.com/lukePeavey/quotable
+Wiki: https://www.mediawiki.org/wiki/API:Main_page
+Open Library: https://openlibrary.org/developers/api
