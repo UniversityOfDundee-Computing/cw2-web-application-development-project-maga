@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="results.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.0/milligram.css"> 
+</head>
+
+<!-- IMPORTANT: any further comments indicate where results
+ pulled from the APIs should be put. For example the book
+ title or author name-->
+
+<body>
+
+ <div class="mainbox">
+    <div class="title">
+       <h1>Bookify API</h1>
+    </div>
+ </div>
+
+ <div class="search">
+     <p>Select a Book <input type="text" placeholder="Search.."></p>
+ </div>
+
+  <div class="results">
+    <h2 class="BookTitle">The Lord of The Rings</h2>  <!-- use to store title of book-->
+     <div class="row">
+         <div class="column">
+             <div class="card">
+                 <div class="authorimage">
+                 <img src="https://cdn.britannica.com/65/66765-050-63A945A7/JRR-Tolkien.jpg" alt="Author" style="width:150px;height:180px;"> <!-- author image goes here-->
+                 </div>
+                 <div class="container">
+                     <h3><b>J.R.R. Tolkein</b></h3> <!--author name goes here (more headings for extra information can be added)-->
+                 </div>
+             </div>
+         </div>
+
+         <div class="quote"></div>
+         <div class="column">
+             <h3>“Let this be the hour when we draw swords together. Fell deeds awake. Now for wrath, now for ruin, and the red dawn. Forth, Eorlingas!” — Theoden, The Two Towers</h3> <!--quote goes here-->
+             </div>
+         </div>
+     </div>
+ </div>
+
+</body>
+</html>
