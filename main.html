@@ -1,28 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.0/milligram.css"> 
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.0/milligram.css">
 </head>
 
 <body>
-<div class="mainbox">
-    <div class="title">
-       <h1>Bookify API</h1>
-    </div>
-
-    <div class="about"><p>After selecting a book, this application will use the OpenLibrary,
-         Quotable, and Wiki APIs to generate author information and a quote from the book.
-    </p></div>
-
-    <div class="search">
-        <h2>Select a Book</h2>
-        <div class="searchbar">
-        <input type="text" placeholder="Search..">
+    <div class="mainbox">
+        <div class="title">
+            <h1>Bookify API</h1>
         </div>
-    </div>
+
+        <div class="about">
+            <p>After selecting a book, this application will use the OpenLibrary,
+                Quotable, and Wiki APIs to generate author information and a quote from the book.
+            </p>
+        </div>
+
+        <form action="results.html">
+            <div class="search">
+                <h2>Select a Book</h2>
+                <div class="searchbar">
+                    <input id="bookInput" type="text" placeholder="Search..">
+                    <button id="searchButton" class="btn btn-primary">Search</button>
+                </div>
+
+                <div id="results" class="results">
+                    <h3>Author Information</h3>
+                    <p id="authorName"></p>
+                    <img id="authorImage" src="" alt="Author Image" style="display:none;">
+                </div>
+            </div>
+            <script src="script/book_script.js"></script>
+        </form>
 
 </body>
+
 </html>
