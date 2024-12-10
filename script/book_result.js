@@ -34,11 +34,13 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((data) => {
       const pages = data.query?.pages || {};
       const firstPage = Object.values(pages)[0]; // Extract the first page
+      const authorWikiUrl = `https://en.wikipedia.org/wiki/${encodeURIComponent(authorName)}`; // Extract the URL to display
       if (firstPage && firstPage.extract) {
         // Display the first paragraph
         document.querySelector(".authorInfo").innerHTML = `
           <h3>About the Author: ${authorName}</h3>
           <p>${firstPage.extract}</p>
+          <p><a href="${authorWikiUrl}" target="_blank">Learn more on Wikipedia</a></p>
         `;
       } else {
         document.querySelector(".authorInfo").innerHTML = `
