@@ -17,42 +17,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // If authorName is found, set the paramaters as follows
   if (authorName) {
-    const wikiUrl = "https://en.wikipedia.org/w/api.php"
-    document.querySelector(".authorName").innerHTML = authorName;
+    const wikiUrl = "https://en.wikipedia.org/w/api.php";
     const wikiParams = {
       action: "query",
       format: "json",
       origin: "*",
       prop: "extracts",
-      exintro: true,  //Extract Intro
+      exintro: true, //Extract Intro
       titles: authorName,
-  };
+    };
 
-  const queryUrl = wikiUrl + "?" + new URLSearchParams(wikiParams).toString();
-  fetch(queryUrl)
-    .then((response) => response.json())
-    .then((data) => {
-      const pages = data.query?.pages || {};
-      const firstPage = Object.values(pages)[0]; // Extract the first page
-      const authorWikiUrl = `https://en.wikipedia.org/wiki/${encodeURIComponent(authorName)}`; // Extract the URL to display
-      if (firstPage && firstPage.extract) {
-        // Display the first paragraph
-        document.querySelector(".authorInfo").innerHTML = `
+    const queryUrl = wikiUrl + "?" + new URLSearchParams(wikiParams).toString();
+    fetch(queryUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        const pages = data.query?.pages || {};
+        const firstPage = Object.values(pages)[0]; // Extract the first page
+        const authorWikiUrl = `https://en.wikipedia.org/wiki/${encodeURIComponent(
+          authorName
+        )}`; // Extract the URL to display
+        if (firstPage && firstPage.extract) {
+          // Display the first paragraph
+          document.querySelector(".authorInfo").innerHTML = `
           <h3>About the Author: ${authorName}</h3>
           <p>${firstPage.extract}</p>
           <p><a href="${authorWikiUrl}" target="_blank">Learn more on Wikipedia</a></p>
         `;
-      } else {
-        document.querySelector(".authorInfo").innerHTML = `
+        } else {
+          document.querySelector(".authorInfo").innerHTML = `
           <p>No detailed information found for ${authorName}.</p>
         `;
-      }
-    })
-    .catch((error) => {
-      console.error("Error fetching author details from Wikipedia:", error);
-      document.querySelector(".authorInfo").innerHTML = `
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching author details from Wikipedia:", error);
+        document.querySelector(".authorInfo").innerHTML = `
         <p>Error fetching information about ${authorName}.</p>
       `;
-    });
-};
+      });
+  }
 });
