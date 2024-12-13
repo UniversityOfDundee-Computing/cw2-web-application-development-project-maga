@@ -40,14 +40,17 @@ h4{
 
 .mainbox{
     background-color: #F0F0C9;
-    width: 450px;
-    height: 117px;
+    width: 500px;
+    height: 200px;
     border: #6E0E0A;
     border-width: 10px;
     border-style: solid;
     margin: auto;
     border-radius: 80px;
     margin-top: 30px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .search{
@@ -63,6 +66,10 @@ h4{
     border-radius: 20px;
     margin-top: 10px;
     padding-top: 9px;
+}
+
+.searchbar{
+    text-align: center;
 }
 
 .results{
