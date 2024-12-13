@@ -132,6 +132,29 @@ h4{
     border-right: 1px solid #6E0E0A;
 }
 
+  
+  .card {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .author-section {
+    text-align: left;
+  }
+  
+  .book-section {
+    text-align: right;
+  }
+  
+  .bookImage img,
+  .authorInfo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
 .footer-section:last-child {
     border-right: none;
 }
