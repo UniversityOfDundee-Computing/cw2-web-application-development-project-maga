@@ -23,17 +23,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (bookTitle && isbn) fetchBookData(bookTitle, isbn);
   if (authorName) fetchAuthorInfo(authorName);
-  if (bookTitle) fetchBookDescription(bookTitle);
 
-  function showLoadingSpinner() {
-    spinner.style.display = "block"; // Show spinner
-    results.style.display = "none"; // Hide results
+  if (window.location.pathname.endsWith("results.html")) {
+    if (bookTitle) fetchBookDescription(bookTitle); // Run only on results.html
   }
 
-  function hideLoadingSpinner() {
-    spinner.style.display = "none"; // Hide spinner
-    results.style.display = "block"; // Hide results
-  }
   function fetchBookDetails(bookInput) {
     const query = bookInput.replace(/\s+/g, "+"); // Replace spaces with '+'
     const searchUrl = `https://openlibrary.org/search.json?q=${query}`;
@@ -45,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!firstBook) {
           alert("No results found. Try another book.");
-          hideLoadingSpinner(); // Hide spinner
+          // hideLoadingSpinner(); // Hide spinner
           return;
         }
 
@@ -72,8 +66,20 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 
+  function showLoadingSpinner() {
+    spinner.style.display = "block"; // Show spinner
+    if (results) {
+      results.style.display = "none"; // Hide results if it exists
+    }
+  }
+
+  function hideLoadingSpinner() {
+    spinner.style.display = "none"; // Hide spinner
+    if (results) {
+      results.style.display = "block"; // Show results if it exists
+    }
+  }
   async function fetchBookData(bookTitle, isbn) {
-    const spinner = document.getElementById("spinner");
     const bookCoverElement = document.getElementById("bookCover");
     const placeholderImageUrl = "https://via.placeholder.com/150";
 
@@ -200,6 +206,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Error fetching description:", error);
       descriptionContainer.innerHTML =
         "<p>Error fetching description for this book.</p>";
+    } finally {
     }
   }
 });
