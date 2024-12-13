@@ -149,6 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
               : `<p>No image available for ${authorName}.</p>`
           }
           </div>
+          <br>
           <h3>About the Author: ${authorName}</h3>
           ${firstPage.extract ? `<p>${firstPage.extract}</p>` : ""}
           <p><a href="${authorWikiUrl}" target="_blank">Learn more on Wikipedia</a></p>
