@@ -136,3 +136,18 @@ h2{
     margin: 0;
 }
 
+#spinner {
+    background-color: #F0F0C9;
+    border: #6E0E0A;
+    border-radius: 80px;
+    border-width: 4px;
+    border-style: solid;
+    padding: auto;
+    display: none; /* Remains hidden initially */
+    position: fixed; /* Fixed positioning to center it relative to the viewport */
+    top: 72%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; /* Ensures it stays above other content */
+    text-align: center;
+}
