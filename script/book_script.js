@@ -1,41 +1,62 @@
-document.getElementById("searchButton").addEventListener("click", function () {
-  const bookInput = document.getElementById("bookInput").value.trim();
-  if (!bookInput) {
-    alert("Please enter a book name.");
-    return;
-  }
+document
+  .getElementById("searchButton")
+  .addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent form submission
 
-  const query = encodeURIComponent(bookInput);
-  const searchUrl = `https://openlibrary.org/search.json?q=${query}`;
+    const bookInput = document.getElementById("bookInput").value.trim();
+    if (!bookInput) {
+      alert("Please enter a book name.");
+      return;
+    }
 
-  fetch(searchUrl)
-    .then((response) => response.json())
-    .then((data) => {
-      const firstBook = data.docs[0];
-      if (!firstBook) {
-        alert("No results found. Try another book.");
-        return;
-      }
+    const query = bookInput.replace(/\s+/g, "+"); // Replace spaces with '+'
+    const searchUrl = `https://openlibrary.org/search.json?q=${query}`;
 
-      const bookTitle = firstBook.title || "Unknown Title";
+    // Fetch data from the search URL
+    fetch(searchUrl)
+      .then((response) => {
+        // Convert the response to JSON format
+        return response.json();
+      })
+      .then((data) => {
+        // Get the first book from the search results
+        const firstBook = data.docs[0];
 
-      const isbn = firstBook.isbn ? firstBook.isbn[0] : null;
+        // If no book is found, display an alert and stop further execution
+        if (!firstBook) {
+          alert("No results found. Try another book.");
+          return;
+        }
 
-      if (!isbn) {
-        alert("No cover image available for this book.");
-        return;
-      }
+        // Extract the book title or use a default value if not available
+        const bookTitle = firstBook.title || "Unknown Title";
 
-      // Store data in localStorage to access on the results page
-      localStorage.setItem("bookTitle", bookTitle);
-      localStorage.setItem("authorName", authorName);
-      localStorage.setItem("isbn", isbn);
+        // Extract the author's name or use a default value if not available
+        const authorName = firstBook.author_name
+          ? firstBook.author_name[0]
+          : "Unknown Author";
+        console.log(authorName);
 
-      // Redirect to the results page
-      window.location.href = "results.html";
-    })
-    .catch((error) => {
-      console.error("Error fetching data:", error);
-      alert("An error occurred while fetching data.");
-    });
-});
+        // Extract the first ISBN or set to null if not available
+        const isbn = firstBook.isbn ? firstBook.isbn[0] : null;
+
+        // If ISBN is not available, alert the user and stop execution
+        if (!isbn) {
+          alert("No cover image available for this book.");
+          return;
+        }
+
+        // Save the extracted data in localStorage for use on the results page
+        localStorage.setItem("bookTitle", bookTitle);
+        localStorage.setItem("authorName", authorName);
+        localStorage.setItem("isbn", isbn);
+
+        // Redirect to the results page
+        window.location.href = "results.html";
+      })
+      .catch((error) => {
+        // Handle any errors that occur during the fetch operation
+        console.error("Error fetching data:", error);
+        alert("An error occurred while fetching data.");
+      });
+  });
