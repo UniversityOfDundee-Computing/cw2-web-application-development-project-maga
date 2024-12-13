@@ -18,42 +18,47 @@
         <div class="title">
             <h1>Bookify API</h1>
         </div>
-    
-    <div class="searchbar">
-        <input id="bookInput" class="form-control" type="text" placeholder="Search..">
-        <button id="searchButton" class="btn btn-primary">Search</button>
-    </div>
+
+        <div class="searchbar">
+            <input id="bookInput" class="form-control" type="text" placeholder="Search..">
+            <button id="searchButton" class="btn btn-primary">Search</button>
+        </div>
     </div>
 
     <div class="results">
         <h2 class="BookTitle"></h2> <!-- use to store title of book-->
-        <div class="row">
-            <div class="column">
-                <div class="card">
-                    <div class="bookImage">
-                        <img id="bookCover" src="" alt="Book Cover" style="width:150px;height:180px;">
-                        <!-- author image goes here-->
+
+
+        <div class="container">
+            <div class="row">
+                <!-- Author Info Section -->
+                <div class="column author-section">
+                    <div class="card">
+                        <div class="authorInfo">
+                            <h6 class="authorName"></h6>
+
+                            <!-- Author image and details will be dynamically populated -->
+                        </div>
                     </div>
-                    <div class="container">
-                        <p class="authorInfo"></p>
-                        <h6 class="authorName"></h6>
-                        <!--author name goes here (more headings for extra information can be added)-->
+                </div>
+
+                <!-- Book Info Section -->
+                <div class="column book-section">
+                    <div class="card">
+                        <div class="bookImage">
+                            <img id="bookCover" src="" alt="Book Cover" style="max-width: 200px; border-radius: 10px;">
+                        </div>
+                        <div class="summary">
+                            <h3>Summary</h3>
+                            <p id="bookSummary">The summary of the book will appear here.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="quote"></div>
-            <div class="column">
-                <h3>Summary</h3> <!--quote goes here-->
-                <div class="card">
-                    <div class="bookImage">
-                        <img id="bookCover" src="" alt="Book Cover" style="width:150px;height:180px;">
-                        <!-- author image goes here-->
-                    </div>
-                    <!-- author image goes here-->
-            </div>
         </div>
-    </div>
+
+
+
     </div>
     <script src="script/book_result.js"></script>
     <script src="script/book_script.js"></script>
