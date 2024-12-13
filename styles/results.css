@@ -9,6 +9,14 @@ descriptions of colours are given with their hex codes.
 'Syracuse Red Orange', dark-ish orange, #D74E09
 'Blood Red', very dark red, #6E0E0A
 */
+*{
+    font-family: "Goudy Bookletter 1911", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 
 html, body {
@@ -17,6 +25,7 @@ html, body {
     display: flex;
     flex-direction: column;
     background-image: URL('bookshelf.jpg');
+    
 }
 
 body {
@@ -36,27 +45,31 @@ h1{
  font-size: 50px;
 }
 
-h2{
+h2,h3,h4{
     text-align: center;
 }
-
-h3{
+.BookTitle {
+    font-size: 4rem;
+    color: #124E78;
     text-align: center;
+    margin: 20px 0;
 }
-
-h4{
-    text-align: center;
+#bookCover{
+    max-width: 200px; 
+    border-radius: 10px;
 }
-
 .about{
     text-align: center;
     font-size: 15px;
+    margin: 10px;
+
 }
 
 .mainbox{
     background-color: #F0F0C9;
-    width: 480px;
-    height: 200px;
+    width: 50%;
+    max-width: 680px;
+    height: auto;
     border: #6E0E0A;
     border-width: 10px;
     border-style: solid;
@@ -67,12 +80,6 @@ h4{
     padding-right: 10px;
     padding-bottom: 10px;
 }
-
-/*
-.mainbox, .results {
-    flex: 1;
-}
-*/
 
 .search{
     font-size: 20px;
@@ -143,7 +150,7 @@ h4{
 }
 
   
-  .card {
+.card {
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -203,4 +210,20 @@ h4{
     color: #6c757d;
     font-size: 0.8rem;
     margin: 0;
+}
+
+#spinner {
+    background-color: #F0F0C9;
+    border: #6E0E0A;
+    border-radius: 80px;
+    border-width: 4px;
+    border-style: solid;
+    padding: auto;
+    display: none; /* Remains hidden initially */
+    position: fixed; /* Fixed positioning to center it relative to the viewport */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset to ensure exact centering */
+    z-index: 1000; /* Ensures it stays above other content */
+    text-align: center;
 }
