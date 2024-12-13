@@ -19,7 +19,8 @@ We will be creating a website that takes the name of a book and returns publicat
 5. ISBN sent to Open Library Cover API for book cover image
 6. All data is displayed on the web interface
 
-## Demonstration
+## Video Demonstration
 
 [Click here to watch the video](https://drive.google.com/file/d/1tAVTRPBwp1rm-luSx0zDx4-YsS3_VXxT/view?usp=drive_link)
+
 https://drive.google.com/file/d/1tAVTRPBwp1rm-luSx0zDx4-YsS3_VXxT/view?usp=sharing
