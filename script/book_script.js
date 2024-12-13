@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const searchButton = document.getElementById("searchButton");
+  const spinner = document.getElementById("spinner"); // Reference to spinner element
+  const results = document.querySelector(".content");
 
   if (searchButton) {
     searchButton.addEventListener("click", function (event) {
@@ -10,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Please enter a book name.");
         return;
       }
+      showLoadingSpinner();
       fetchBookDetails(bookInput);
     });
   }
@@ -22,6 +25,15 @@ document.addEventListener("DOMContentLoaded", function () {
   if (authorName) fetchAuthorInfo(authorName);
   if (bookTitle) fetchBookDescription(bookTitle);
 
+  function showLoadingSpinner() {
+    spinner.style.display = "block"; // Show spinner
+    results.style.display = "none"; // Hide results
+  }
+
+  function hideLoadingSpinner() {
+    spinner.style.display = "none"; // Hide spinner
+    results.style.display = "block"; // Hide results
+  }
   function fetchBookDetails(bookInput) {
     const query = bookInput.replace(/\s+/g, "+"); // Replace spaces with '+'
     const searchUrl = `https://openlibrary.org/search.json?q=${query}`;
@@ -33,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!firstBook) {
           alert("No results found. Try another book.");
+          hideLoadingSpinner(); // Hide spinner
           return;
         }
 
