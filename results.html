@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/results.css">
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.0/milligram.css">
 </head>
 
@@ -20,8 +21,9 @@
         </div>
     </div>
 
-    <div class="search">
-        <p>Select a Book <input type="text" placeholder="Search.."></p>
+    <div class="searchbar">
+        <input id="bookInput" class="form-control" type="text" placeholder="Search..">
+        <button id="searchButton" class="btn btn-primary">Search</button>
     </div>
 
     <div class="results">
@@ -34,8 +36,8 @@
                         <!-- author image goes here-->
                     </div>
                     <div class="container">
-                        <p class = "authorInfo"></p>
-                        <h6 class = "authorName"></h6>
+                        <p class="authorInfo"></p>
+                        <h6 class="authorName"></h6>
                         <!--author name goes here (more headings for extra information can be added)-->
                     </div>
                 </div>
@@ -49,5 +51,7 @@
     </div>
     </div>
     <script src="script/book_result.js"></script>
+    <script src="script/book_script.js"></script>
 </body>
+
 </html>
