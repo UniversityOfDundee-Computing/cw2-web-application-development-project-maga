@@ -55,19 +55,24 @@ h4{
 
 .mainbox{
     background-color: #F0F0C9;
-    width: 450px;
-    min-height: 117px;
+    width: 480px;
+    height: 200px;
     border: #6E0E0A;
     border-width: 10px;
     border-style: solid;
     margin: auto;
     border-radius: 80px;
     margin-top: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
 }
 
+/*
 .mainbox, .results {
     flex: 1;
 }
+*/
 
 .search{
     font-size: 20px;
@@ -84,6 +89,10 @@ h4{
     padding-top: 9px;
 }
 
+.searchbar{
+    text-align: center;
+}
+
 .results{
     background-color: #F0F0C9;
     width: auto;
@@ -95,6 +104,7 @@ h4{
     border-radius: 80px;
     margin-top: 30px;
     margin-bottom: 30px;
+    padding-bottom: 20px;
 }
 
 .bookImage{
