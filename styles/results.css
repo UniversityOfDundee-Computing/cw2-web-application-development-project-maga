@@ -11,8 +11,23 @@ descriptions of colours are given with their hex codes.
 */
 
 
-body{
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
     background-image: URL('bookshelf.jpg');
+}
+
+body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+p{
+    text-align: justify;
 }
 
 h1{
@@ -40,17 +55,18 @@ h4{
 
 .mainbox{
     background-color: #F0F0C9;
-    width: 500px;
-    height: 200px;
+    width: 450px;
+    min-height: 117px;
     border: #6E0E0A;
     border-width: 10px;
     border-style: solid;
     margin: auto;
     border-radius: 80px;
     margin-top: 30px;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+}
+
+.mainbox, .results {
+    flex: 1;
 }
 
 .search{
@@ -68,10 +84,6 @@ h4{
     padding-top: 9px;
 }
 
-.searchbar{
-    text-align: center;
-}
-
 .results{
     background-color: #F0F0C9;
     width: auto;
@@ -82,6 +94,7 @@ h4{
     margin: auto;
     border-radius: 80px;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .bookImage{
@@ -93,4 +106,68 @@ h4{
     margin-bottom: 2px;
 }
 
+.footer {
+    background-color:  #F0F0C9;
+    padding: 30px 0 10px 0;
+    position: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    border-top: 1px solid  #6E0E0A;
+}
 
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 0 20px;
+    text-align: center;
+    border-right: 1px solid #6E0E0A;
+}
+
+.footer-section:last-child {
+    border-right: none;
+}
+
+.footer-section h4 {
+    color: #343a40;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.footer-section p {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.footer-section a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid  #6E0E0A;
+}
+
+.footer-bottom p {
+    color: #6c757d;
+    font-size: 0.8rem;
+    margin: 0;
+}
