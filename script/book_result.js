@@ -73,4 +73,58 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
     }
   }
+  async function fetchBookDescription(bookTitle) {
+    if (!bookTitle) return;
+
+    const worksUrl = `https://openlibrary.org/search.json?q=${encodeURIComponent(
+      bookTitle
+    )}`;
+    const descriptionContainer = document.querySelector(".bookDescription");
+
+    try {
+      // Fetch the works data
+      const worksResponse = await fetch(worksUrl);
+      const worksData = await worksResponse.json();
+
+      const firstBook = worksData.docs[0];
+      if (!firstBook || !firstBook.key) {
+        throw new Error("No works found for this book.");
+      }
+
+      const workKey = firstBook.key; // Extract the work key
+      const workDetailsUrl = `https://openlibrary.org${workKey}.json`;
+
+      // Fetch the work details
+      const workDetailsResponse = await fetch(workDetailsUrl);
+      const workData = await workDetailsResponse.json();
+
+      // Handle description
+      if (workData.description) {
+        let descriptionText;
+
+        if (typeof workData.description === "string") {
+          // If description is a text string
+          descriptionText = workData.description;
+        } else if (
+          typeof workData.description === "object" &&
+          workData.description.value
+        ) {
+          // If description is an object with a "value" key
+          descriptionText = workData.description.value;
+        } else {
+          // Default fallback if no description is available
+          descriptionText = "No description available for this book.";
+        }
+
+        descriptionContainer.innerHTML = `<h3>Book Excerpt</h3><p>${descriptionText}</p>`;
+      } else {
+        descriptionContainer.innerHTML =
+          "<p>No description available for this book.</p>";
+      }
+    } catch (error) {
+      console.error("Error fetching description:", error);
+      descriptionContainer.innerHTML =
+        "<p>Error fetching description for this book.</p>";
+    }
+  }
 });
