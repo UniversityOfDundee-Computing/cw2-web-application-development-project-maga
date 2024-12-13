@@ -19,10 +19,10 @@
             <h1>Bookify API</h1>
         
 
-    </div>
-    <div class="searchbar">
-        <input id="bookInput" class="form-control" type="text" placeholder="Search..">
-        <button id="searchButton" class="btn btn-primary">Search</button>
+        <div class="searchbar">
+            <input id="bookInput" class="form-control" type="text" placeholder="Search..">
+            <button id="searchButton" class="btn btn-primary">Search</button>
+        </div>
     </div>
     </div>
 
@@ -43,14 +43,13 @@
                     </div>
                 </div>
 
-
                 <!-- Book Info Section -->
                 <div class="column book-section">
                     <div class="card">
                         <div class="bookImage">
                             <img id="bookCover" src="" alt="Book Cover" style="max-width: 200px; border-radius: 10px;">
                         </div>
-                        <div class="summary">
+                        <div class="bookDescription">
                             <h3>Summary</h3>
                             <p id="bookSummary">The summary of the book will appear here.</p>
                         </div>
@@ -59,36 +58,9 @@
             </div>
         </div>
 
-
-
     </div>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>OpenLibrary API</h4>
-                <p class = "footer-text">Provides comprehensive book information and author details</p>
-                <a href="https://openlibrary.org/developers/api" target="_blank">API Documentation</a>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Book Descriptions - OpenLibrary Api</h4>
-                <p>Specifically delivers a summary about a book</p>
-                <a href="https://openlibrary.org/dev/docs/api/books" target="_blank">API Documentation</a>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Wiki API</h4>
-                <p class = "footer-text">Supplies additional author biographical information</p>
-                <a href="https://www.mediawiki.org/wiki/API:Main_page" target="_blank">API Documentation</a>
-            </div>
-        </div>
-    </footer>
-            
     <script src="script/book_result.js"></script>
     <script src="script/book_script.js"></script>
-
-
 </body>
 
 </html>
