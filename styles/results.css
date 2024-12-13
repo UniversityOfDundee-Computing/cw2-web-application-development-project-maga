@@ -51,7 +51,7 @@ h2,h3,h4{
 }
 .BookTitle {
     font-size: 4rem;
-    color: #124E78;
+    color: #0c324e;
     text-align: center;
     margin: 20px 0;
 }
@@ -180,12 +180,12 @@ h2,h3,h4{
 .footer-section h4 {
     color: #343a40;
     margin-bottom: 10px;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 .footer-section p {
     color: #6c757d;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     margin-bottom: 10px;
     text-align: center;
 }
