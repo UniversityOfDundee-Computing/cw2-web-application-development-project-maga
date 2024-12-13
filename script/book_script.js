@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", function () {
           descriptionText = "No description available for this book.";
         }
 
-        descriptionContainer.innerHTML = `<h3>Book Excerpt</h3><p>${descriptionText}</p>`;
+        descriptionContainer.innerHTML = `<h3>Book Description</h3><p>${descriptionText}</p>`;
       } else {
         descriptionContainer.innerHTML =
           "<p>No description available for this book.</p>";
