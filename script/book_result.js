@@ -3,16 +3,45 @@ document.addEventListener("DOMContentLoaded", function () {
   const authorName = localStorage.getItem("authorName");
   const isbn = localStorage.getItem("isbn");
 
-  if (bookTitle && isbn) {
-    // Update the book title
-    document.querySelector(".BookTitle").innerText = bookTitle;
+  fetchBookData(bookTitle, isbn);
+  async function fetchBookData(bookTitle, isbn) {
+    const spinner = document.getElementById("spinner");
+    const bookCoverElement = document.getElementById("bookCover");
+    const placeholderImageUrl = "https://via.placeholder.com/150";
 
-    // Update the book cover image using the ISBN
-    const coverImageUrl = `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`;
-    document.getElementById("bookCover").src = coverImageUrl;
-  } else {
-    document.querySelector(".BookTitle").innerText = "No data found.";
-    document.getElementById("bookCover").style.display = "none";
+    try {
+      // Simulate an API call delay
+      const coverImageUrl = `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`;
+      const bookTitleElement = document.querySelector(".BookTitle");
+
+      // Update book title
+      bookTitleElement.innerText = bookTitle || "Fetching book details...";
+
+      // Set a temporary loading state for the book cover
+      bookCoverElement.src = placeholderImageUrl;
+
+      // Fetch and validate the image asynchronously
+      await new Promise((resolve) => {
+        const tempImage = new Image();
+        tempImage.src = coverImageUrl;
+        tempImage.onload = () => {
+          if (tempImage.naturalWidth < 100 || tempImage.naturalHeight < 150) {
+            bookCoverElement.src = placeholderImageUrl;
+          } else {
+            bookCoverElement.src = coverImageUrl;
+          }
+          resolve();
+        };
+        tempImage.onerror = () => {
+          bookCoverElement.src = placeholderImageUrl;
+          resolve();
+        };
+      });
+    } catch (error) {
+      console.error("Error fetching book data:", error);
+      document.querySelector(".BookTitle").innerText = "No data found.";
+      bookCoverElement.src = placeholderImageUrl;
+    }
   }
 
   fetchAuthorInfo(authorName);
