@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const isbn = localStorage.getItem("isbn");
 
   fetchBookData(bookTitle, isbn);
+  fetchAuthorInfo(authorName);
+  fetchBookDescription(bookTitle);
+
   async function fetchBookData(bookTitle, isbn) {
     const spinner = document.getElementById("spinner");
     const bookCoverElement = document.getElementById("bookCover");
@@ -44,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  fetchAuthorInfo(authorName);
   // If authorName is found, set the parameters as follows
   async function fetchAuthorInfo(authorName) {
     if (!authorName) return;
@@ -108,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const worksUrl = `https://openlibrary.org/search.json?q=${encodeURIComponent(
       bookTitle
     )}`;
-    const descriptionContainer = document.querySelector(".bookDescription");
+    const descriptionContainer = document.querySelector(".bookSummary");
 
     try {
       // Fetch the works data
